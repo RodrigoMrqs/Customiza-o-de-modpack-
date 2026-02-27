@@ -1,8 +1,15 @@
 const poison = [
-    [], // 1 poison
-    [], // 2 poison
-    [], // 3 poison
-    [], // 4 poison
+    // 25 chance
+    ['apocalypsenow:whisky', 'apocalypsenow:contaminated_water', 'apocalypsenow:vodka', 'croptopia:beer', 'croptopia:wine', 'croptopia:mead', 'croptopia:rum'],
+
+    // 50 chance
+    [],
+
+    // 75 chance
+    ['rusticdelight:cooking_oil'],
+
+    // 100 chance
+    [], 
 ]
 
 ServerEvents.tags('item', event => {
