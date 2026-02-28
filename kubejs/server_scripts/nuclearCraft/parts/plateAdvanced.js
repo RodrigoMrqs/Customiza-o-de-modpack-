@@ -1,16 +1,28 @@
 ServerEvents.recipes(event => {
-    event.shaped(
-        Item.of('nuclearcraft:plate_advanced'),
-            [
+event.custom({
+  type: "create:mechanical_crafting",
+  acceptMirrored: false,
+  key: {
+    A: {
+      item: 'nuclearcraft:plate_basic'
+    },
+    B: {
+      item: 'immersiveengineering:wirecoil_copper'
+    },
+    C: {
+      item: 'nuclearcraft:tough_alloy_ingot'
+    },
+    D: {
+      item: 'immersiveengineering:wirecoil_redstone'
+    }
+  },
+  pattern:  [
                 'ABA',
                 'CDC',
                 'ABA'
             ],
-            {
-                A: 'nuclearcraft:plate_basic',
-                B: 'immersiveengineering:wirecoil_copper',
-                C: 'nuclearcraft:tough_alloy_ingot',
-                D: 'immersiveengineering:wirecoil_redstone'
-            }
-    )
+  result: {
+    item: 'nuclearcraft:plate_advanced'
+  }
+})
 });

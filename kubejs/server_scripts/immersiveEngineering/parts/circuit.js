@@ -1,18 +1,35 @@
 ServerEvents.recipes(event => {
-    event.shaped(
-        Item.of('mts:mtsofficialpack.circuit'),
-            [
-                'A  ',
-                'BCD',
-                'EFE'
+    event.remove({output: 'mts:mtsofficialpack.circuit' })
+    event.custom({
+  type: "create:mechanical_crafting",
+  acceptMirrored: false,
+  key: {
+    A: {
+      item: 'create:electron_tube'
+    },
+    B: {
+      item: 'createaddition:redstone_relay'
+    },
+    C: {
+      item: 'createaddition:gold_spool'
+    },
+    D: {
+      item: 'immersiveengineering:electron_tube'
+    },
+    E: {
+      item: 'immersiveengineering:plate_duroplast'
+    },
+    F: {
+      item: 'immersiveengineering:slab_sheetmetal_colored_green'
+    }
+  },
+  pattern:  [
+        'A  ',
+        'BCD',
+        'EFE'
             ],
-            {
-                A: 'create:electron_tube',
-                C: 'createaddition:gold_spool',
-                E: 'immersiveengineering:plate_duroplast',
-                B: 'createaddition:redstone_relay',
-                D: 'immersiveengineering:electron_tube',
-                F: 'immersiveengineering:slab_sheetmetal_colored_green'
-            }
-    )
+  result: {
+    item: 'mts:mtsofficialpack.circuit'
+  }
+})
 });

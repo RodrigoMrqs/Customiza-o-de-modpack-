@@ -1,15 +1,26 @@
 ServerEvents.recipes(event => {
-    event.shaped(
-        Item.of('nuclearcraft:chassis'),
-            [
-                'ABA',
-                'BCB',
-                'ABA'
-            ],
-            {
-                A: 'immersiveengineering:plate_steel',
-                B: 'immersiveengineering:plate_lead',
-                C: 'mts:mtsofficialpack.processor'
-            }
-    )
+    event.remove({output: 'nuclearcraft:chassis'})
+    event.custom({
+  type: "create:mechanical_crafting",
+  acceptMirrored: false,
+  key: {
+    A: {
+      item: 'immersiveengineering:plate_steel'
+    },
+    B: {
+      item: 'immersiveengineering:plate_lead'
+    },
+    C: {
+      item: 'mts:mtsofficialpack.processor'
+    }
+  },
+  pattern:  [
+        'ABA',
+        'BCB',
+        'ABA'
+    ],
+  result: {
+    item: 'nuclearcraft:chassis'
+  }
+})
 });

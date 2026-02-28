@@ -1,18 +1,35 @@
 ServerEvents.recipes(event => {
-    event.shaped(
-        Item.of('mts:mtsofficialpack.irsensor'),
-            [
-                'AB ',
-                'CDE',
-                ' EF'
+    event.remove({output: 'mts:mtsofficialpack.irsensor'})
+    event.custom({
+      type: "create:mechanical_crafting",
+      acceptMirrored: false,
+      key: {
+        A: {
+          item: 'securitycraft:lens'
+        },
+        B: {
+          item: 'meds_and_herbs:glass_tube'
+        },
+        C: {
+          item: 'mts:mtsofficialpack.headlight'
+        },
+        D: {
+          item: 'mts:mtsofficialpack.circuit'
+        },
+        E: {
+          item: 'immersiveengineering:wirecoil_redstone'
+        },
+        F: {
+          item: 'mts:mtsofficialpack.metaltube'
+        }
+      },
+      pattern:  [
+            'AB ',
+            'CDE',
+            ' EF'
             ],
-            {
-                D: 'mts:mtsofficialpack.circuit',
-                A: 'securitycraft:lens',
-                C: 'mts:mtsofficialpack.headlight',
-                F: 'mts:mtsofficialpack.metaltube',
-                E: 'immersiveengineering:wirecoil_redstone',
-                B: 'meds_and_herbs:glass_tube'
-            }
-    )
+      result: {
+        item: 'mts:mtsofficialpack.irsensor'
+      }
+    })
 });

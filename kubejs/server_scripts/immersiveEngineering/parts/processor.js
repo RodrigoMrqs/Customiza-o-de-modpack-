@@ -1,18 +1,35 @@
 ServerEvents.recipes(event => {
-    event.shaped(
-        Item.of('mts:mtsofficialpack.processor'),
-            [
-                '  A',
-                'BCB',
-                'DEF'
+    event.remove({output: 'mts:mtsofficialpack.processor'})
+event.custom({
+  type: "create:mechanical_crafting",
+  acceptMirrored: false,
+  key: {
+    A: {
+      item: 'mekanism:alloy_infused'
+    },
+    B: {
+      item: 'immersiveengineering:wirecoil_copper'
+    },
+    C: {
+      item: 'mts:mtsofficialpack.circuit'
+    },
+    D: {
+      item: 'create:transmitter'
+    },
+    E: {
+      item: 'immersiveengineering:slab_sheetmetal_iron'
+    },
+    F: {
+      item: 'immersiveengineering:wirecoil_redstone'
+    }
+  },
+  pattern:  [
+        '  A',
+        'BCB',
+        'DEF'
             ],
-            {
-                C: 'mts:mtsofficialpack.circuit',
-                 A: 'infinitybuttons:red_emergency_button',
-                E: 'immersiveengineering:slab_sheetmetal_iron',
-                F: 'immersiveengineering:wirecoil_redstone',
-                B: 'immersiveengineering:wirecoil_copper',
-                D: 'create:transmitter'
-            }
-    )
+  result: {
+    item: 'mts:mtsofficialpack.processor'
+  }
+})
 });
