@@ -1,48 +1,51 @@
+/**
+ * Create Mod - Immersive Engineering Bricks Mixer Recipes
+ * Produces specialized bricks for IE machinery through heated mixing
+ */
 ServerEvents.recipes(event => {
-    const receita =(tijolo,bloco,miolo,resultado) => {
-        event.remove({output: resultado })
-        event.custom(
+  /**
+   * Creates a heated mixer recipe for producing IE bricks
+   * @param {string} brick - The primary brick item (4x)
+   * @param {string} block - The secondary block (4x)
+   * @param {string} core - The core material (1x)
+   * @param {string} result - The resulting brick item
+   */
+  const createBrickRecipe = (brick, block, core, result) => {
+    event.remove({ output: result });
+    event.custom({
+      type: "create:mixing",
+      heatRequirement: "heated",
+      ingredients: [
+        { item: brick },
+        { item: brick },
+        { item: brick },
+        { item: brick },
+        { item: block },
+        { item: block },
+        { item: block },
+        { item: block },
+        { item: core }
+      ],
+      results: [
         {
-         type: "create:mixing",
-         heatRequirement: "heated",
-         ingredients: [
-           {
-              item: tijolo
-            },
-            {
-              item: tijolo
-            },
-            {
-              item: tijolo
-            },
-            {
-              item: tijolo
-            },
-           {
-               item: bloco
-            },
-            {
-               item: bloco
-            },
-            {
-               item: bloco
-            },
-            {
-               item: bloco
-            },
-            {
-               item: miolo
-            }
-             ],
-        results: [
-              {
-             count: 3,
-        item: resultado
-    }
-  ]
-}
-)
-    }      
-receita('minecraft:nether_brick','minecraft:bricks','minecraft:magma_block','immersiveengineering:blastbrick')
-receita('minecraft:brick','minecraft:clay','create:andesite_alloy','immersiveengineering:cokebrick')
-})
+          count: 3,
+          item: result
+        }
+      ]
+    });
+  };
+
+  // Register brick recipes
+  createBrickRecipe(
+    'minecraft:nether_brick',
+    'minecraft:bricks',
+    'minecraft:magma_block',
+    'immersiveengineering:blastbrick'
+  );
+  createBrickRecipe(
+    'minecraft:brick',
+    'minecraft:clay',
+    'create:andesite_alloy',
+    'immersiveengineering:cokebrick'
+  );
+});
