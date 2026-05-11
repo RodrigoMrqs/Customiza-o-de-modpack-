@@ -13,13 +13,10 @@ const poison = [
 ]
 
 ServerEvents.tags('item', event => {
-    let poisonChance = 25
-
-    for (let i = 0; i < poison.length; i++) {
-        for (let j = 0; j < poison[i].length; j++) {
-            event.add(`toughasnails:poison/${poisonChance}_poison_drinks`, poison[i][j])
-        }
-        
-        poisonChance += 25
-    }
-})
+    poison.forEach((drinks, index) => {
+        const poisonLevel = index * 25 + 25;
+        drinks.forEach(drink => {
+        event.add(`toughasnails:poison/${poisonLevel}_poison_drinks`, drink);
+        });
+    });
+});
